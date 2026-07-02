@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #F7F6F2;
+  color: #14161F;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes drift {
+  0% { transform: translateX(-6%) translateY(0); }
+  50% { transform: translateX(4%) translateY(-2%); }
+  100% { transform: translateX(-6%) translateY(0); }
+}
+
+.flow-line {
+  animation: drift 18s ease-in-out infinite;
+}
+
+.flow-line-slow {
+  animation: drift 26s ease-in-out infinite;
+  animation-delay: -6s;
+}
+
+.flow-line-slower {
+  animation: drift 32s ease-in-out infinite;
+  animation-delay: -14s;
+}
+
+:focus-visible {
+  outline: 2px solid #2DD4BF;
+  outline-offset: 3px;
+}
